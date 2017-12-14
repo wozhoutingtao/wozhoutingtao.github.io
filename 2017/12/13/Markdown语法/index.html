@@ -94,7 +94,7 @@
 <meta property="og:description" content="Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（英语：John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档”。    –wiki  正如上述所说，Markdown是一种专门用来写作的轻量级标记语言。它语法简洁明了，容易学习，而且还可以转化为PPT、Word、HTML等其他格式。下面开始介绍Markdown的基本语法。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_ca79a146.png">
-<meta property="og:updated_time" content="2017-12-14T02:44:43.036Z">
+<meta property="og:updated_time" content="2017-12-14T07:03:30.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown语法">
 <meta name="twitter:description" content="Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（英语：John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档”。    –wiki  正如上述所说，Markdown是一种专门用来写作的轻量级标记语言。它语法简洁明了，容易学习，而且还可以转化为PPT、Word、HTML等其他格式。下面开始介绍Markdown的基本语法。">
@@ -376,7 +376,7 @@
 </blockquote>
 <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>Markdown 支持两种标题的语法，类 Setext 和类 atx 形式。常用方式为类 Atx 形式。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># H1</span><br><span class="line">## H2</span><br><span class="line">### H3</span><br><span class="line">#### H4</span><br><span class="line">##### H5</span><br><span class="line">###### H6</span><br></pre></td></tr></table></figure></p>
 <p>因影响文章目录，不提供表现效果。</p>
-<h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><p>在本文开头以及上面的示例中已经用到过了，就是在引用的行/段前加入<code>&gt;</code>。区块引用可以嵌套，也可以再区块引用内使用其他Markdown语法。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; **行内容。**</span><br></pre></td></tr></table></figure></p>
+<h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><p>在本文开头以及上面的示例中已经用到过了，就是在引用的行/段前加入<code>&gt;</code>。区块引用可以嵌套，也可以在区块引用内使用其他Markdown语法。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; **行内容。**</span><br></pre></td></tr></table></figure></p>
 <p>表现效果：</p>
 <blockquote>
 <p><strong>行内容。</strong></p>
@@ -416,9 +416,9 @@
 <p>表现效果：</p>
 <p><em>行内容。</em>    <em>行内容。</em>    <strong>行内容。</strong>    <strong>行内容。</strong></p>
 <p><strong>如果你的<code>*</code>和<code>_</code>两边都有空白的话，它们就只会被当成普通的符号。</strong></p>
-<h2 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h2><p>上述内容中所有的示例都使用到了代码框。使用`符号将内容包起来。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在行内插入代码`hello`。</span><br><span class="line">``在行内使用`符号时，使用多个`开启和结束代码区段。``</span><br><span class="line">``\`</span><br><span class="line">使用段代码框。</span><br><span class="line">``\`</span><br><span class="line">在上述示例中为了展示代码，所以添加了\。在实际使用中需要去掉。</span><br></pre></td></tr></table></figure></p>
-<p>表现效果：</p>
-<p>在行内插入代码<code>hello</code>。<br><code>在行内使用`符号时，使用多个`开启和结束代码区段。</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用段代码框。</span><br></pre></td></tr></table></figure></p>
+<h2 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h2><p>上述内容中所有的示例都使用到了代码框。使用```符号将内容包起来。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在行内插入代码`hello`。</span><br><span class="line">``在代码区域段内使用`符号时，使用多个`开启和结束代码区段。``</span><br><span class="line">``\`</span><br><span class="line">使用段代码框。</span><br><span class="line">``\`</span><br></pre></td></tr></table></figure></p>
+<p>在上述示例中为了展示代码，所以添加了\。在实际使用中需要去掉。<br>表现效果：</p>
+<p>在行内插入代码<code>hello</code>。<br><code>在代码区域段内使用`符号时，使用多个`开启和结束代码区段。</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用段代码框。</span><br></pre></td></tr></table></figure></p>
 <h2 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h2><blockquote>
 <p><a href="https://www.binarization.com/archive/2016/markdown-guide/" target="_blank" rel="noopener">Markdown：指南</a><br><a href="https://www.binarization.com/archive/2016/markdown-syntax/#blockquote" target="_blank" rel="noopener">Markdown：语法</a></p>
 </blockquote>
