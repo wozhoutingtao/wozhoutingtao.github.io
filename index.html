@@ -259,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/15/PHP源码下载及目录结构阅读/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/PHP安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Siess">
@@ -278,7 +278,171 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/15/PHP源码下载及目录结构阅读/" itemprop="url">PHP源码下载及目录结构阅读</a></h1>
+                <a class="post-title-link" href="/2017/12/18/PHP安装/" itemprop="url">PHP安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T10:57:46+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/正文/" itemprop="url" rel="index">
+                    <span itemprop="name">正文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="PHP安装"><a href="#PHP安装" class="headerlink" title="PHP安装"></a>PHP安装</h1><p>在安装之前，我们首先要了解我们PHP可以用来做什么。在官方文档中写到有三种用途：</p>
+<ul>
+<li>Websites and web applications (server-side scripting)</li>
+<li>Command line scripting</li>
+<li>Desktop (GUI) applications</li>
+</ul>
+<p>我们一般是用它来写服务器端脚本。所以我们需要一个web服务器和一个web浏览器。</p>
+<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><p>将下载的包解压到<code>C:\php</code>（名称随意，但最好不要在路径中出现空格，如“C:\Program Files\PHP”，否则可能导致一些web服务器崩溃），将路径添加到<strong>PATH</strong>。<br>在命令行界面输入<code>path</code>检查是否生效。</p>
+<h2 id="配置php-ini"><a href="#配置php-ini" class="headerlink" title="配置php.ini"></a>配置php.ini</h2><p>修改根目录中的<em>php.ini-production</em> 名称为<em>php.ini</em> 。<br>修改<em>doc_root</em>参数为当前所用web服务器的文档根目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">doc_root = C:\Apache24\htdocs</span><br></pre></td></tr></table></figure></p>
+<p>将<code>; extension_dir = &quot;ext&quot;</code>前的<code>;</code>去掉。</p>
+<h2 id="安装Apache服务器"><a href="#安装Apache服务器" class="headerlink" title="安装Apache服务器"></a>安装Apache服务器</h2><p>在<a href="https://www.apachehaus.com/cgi-bin/download.plx" target="_blank" rel="noopener">下载页</a>中选择自己要安装的版本（注意安装对应的VC环境），将下载好的压缩包解压，当前路径为<code>C:\Apache24</code>。<br>以管理员身份打开命令行界面，切到<code>C:\Apache24\bin</code>目录下，输入<code>httpd.exe</code>启动httpd服务。<br>可以输入<code>httpd -k install</code>将Apache作为服务安装到Windows系统。<br><em>注意端口占用问题</em><br>命令行操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">httpd -k stop			停止Apache</span><br><span class="line">httpd -k restart		重启Apache</span><br><span class="line">httpd -k uninstall		卸载Apache</span><br><span class="line">httpd -t			测试配置语法</span><br><span class="line">httpd -V			查看Apache版本</span><br><span class="line">httpd -h			查看Apache命令行选项</span><br></pre></td></tr></table></figure></p>
+<p>打开<em>httpd.conf</em>,在<em>LoadModule</em> 末尾添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LoadModule php7_module &quot;C:/php/php7apache2_4.dll&quot;</span><br><span class="line">AddType application/x-httpd-php .php</span><br><span class="line">PHPIniDir &quot;C:/php&quot;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/15/PHP下载及目录结构阅读/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Siess">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Siess's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/15/PHP下载及目录结构阅读/" itemprop="url">PHP下载及目录结构阅读</a></h1>
         
 
         <div class="post-meta">
@@ -363,9 +527,11 @@
       
         
           
-            <h1 id="PHP源码下载及目录结构阅读"><a href="#PHP源码下载及目录结构阅读" class="headerlink" title="PHP源码下载及目录结构阅读"></a>PHP源码下载及目录结构阅读</h1><p>本文以目前最新的PHP版本（PHP 7.2.0）为目标开始学习。</p>
-<h2 id="PHP源码下载"><a href="#PHP源码下载" class="headerlink" title="PHP源码下载"></a>PHP源码下载</h2><p>PHP官网为<a href="php.net">php.net</a>。在顶部导航栏中找到<a href="http://php.net/downloads.php" target="_blank" rel="noopener">Downloads</a>，点击进入下载页面。因为是在Windows平台，所以点击<a href="http://windows.php.net/download#php-7.2" target="_blank" rel="noopener">Windows downloads</a>进入Windows PHP下载页面。找到我们的学习目标（PHP 7.2.0）点击<a href="http://windows.php.net/downloads/releases/php-7.2.0-src.zip" target="_blank" rel="noopener">Download source code</a>下载PHP 7.2.0源码。</p>
-<h2 id="目录结构阅读"><a href="#目录结构阅读" class="headerlink" title="目录结构阅读"></a>目录结构阅读</h2>
+            <h1 id="PHP下载及目录结构阅读"><a href="#PHP下载及目录结构阅读" class="headerlink" title="PHP下载及目录结构阅读"></a>PHP下载及目录结构阅读</h1><p>本文以目前最新的PHP版本（PHP 7.2.0 x64 Thread Safe版）为目标开始学习。</p>
+<h2 id="PHP下载"><a href="#PHP下载" class="headerlink" title="PHP下载"></a>PHP下载</h2><p>PHP官网为<a href="php.net">php.net</a>。在顶部导航栏中找到<a href="http://php.net/downloads.php" target="_blank" rel="noopener">Downloads</a>，点击进入下载页面。因为是在Windows平台，所以点击<a href="http://windows.php.net/download#php-7.2" target="_blank" rel="noopener">Windows downloads</a>进入Windows PHP下载页面。找到我们的学习目标（PHP 7.2.0 VC15 x64 Thread Safe）点击<a href="http://windows.php.net/downloads/releases/php-7.2.0-Win32-VC15-x64.zip" target="_blank" rel="noopener">Zip</a>下载PHP。</p>
+<h2 id="目录结构阅读"><a href="#目录结构阅读" class="headerlink" title="目录结构阅读"></a>目录结构阅读</h2><p>将压缩包解压后，目录：<br><img src="http://wx3.sinaimg.cn/mw690/0065O26fgy1fmkwsafubmj30hc0nowfq.jpg" alt="php7.2.0 Thread Safe 版本"></p>
+<p>打开<em>install.txt</em>，其中有关于PHP 7 目录结构的介绍：<br><img src="http://wx2.sinaimg.cn/mw690/0065O26fgy1fmkqg23y9ej30kd0oadfu.jpg" alt="官方目录介绍"></p>
+
           
         
       
@@ -413,7 +579,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/15/PHP内核学习目录/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/15/PHP学习目录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Siess">
@@ -432,7 +598,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/15/PHP内核学习目录/" itemprop="url">PHP内核学习目录</a></h1>
+                <a class="post-title-link" href="/2017/12/15/PHP学习目录/" itemprop="url">PHP学习目录</a></h1>
         
 
         <div class="post-meta">
@@ -517,8 +683,11 @@
       
         
           
-            <h1 id="PHP内核学习目录"><a href="#PHP内核学习目录" class="headerlink" title="PHP内核学习目录"></a>PHP内核学习目录</h1><ol>
-<li><a href="/2017/12/15/PHP源码下载及目录结构阅读/">PHP源码下载及目录结构阅读</a></li>
+            <font size="5px"><strong>PHP学习目录</strong></font>
+
+<ol>
+<li><a href="/2017/12/15/PHP下载及目录结构阅读/">PHP下载及目录结构阅读</a></li>
+<li><a href="/2017/12/18/PHP安装/">PHP安装</a></li>
 </ol>
 
           
@@ -960,7 +1129,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
